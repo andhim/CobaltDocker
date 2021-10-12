@@ -10,6 +10,9 @@ RUN go mod download
 
 COPY *.go ./
 
+RUN apk update && apk add --no-cache gcc
+RUN apk add musl-dev
+
 RUN go build -o /cobaltdocker
 
 EXPOSE 8080
